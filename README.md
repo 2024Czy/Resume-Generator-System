@@ -4,6 +4,31 @@
 
 > 所有简历数据默认只在本机处理。智能解析固定使用本地 Ollama 模型 `qwen3:4b`，不会把简历发送给远程大模型服务。
 
+本仓库同时是一个可安装的 Codex Skill：Codex 可以直接调用本地 CLI 完成“解析 → 校对 → 生成”，无需启动网页服务。
+
+## 在 Codex 中安装
+
+在 Codex 中调用内置安装器，并提供本仓库地址：
+
+```text
+$skill-installer Install the resume-workshop skill from https://github.com/2024Czy/Resume-Generator-System
+```
+
+安装后可显式调用：
+
+```text
+$resume-workshop 解析这份 Word 简历，列出不确定字段，等我确认后生成格式统一的 DOCX。
+```
+
+Codex 也可以根据任务描述自动选择该技能。技能定义见 [`SKILL.md`](SKILL.md)，结构化字段见 [`references/resume-schema.md`](references/resume-schema.md)。
+
+技能模式仅需 Python 依赖：
+
+```bash
+python -m pip install -r requirements.txt
+python scripts/resume_cli.py --help
+```
+
 ## 网站预览
 
 网页端提供“导入资料 → 校对信息 → 生成文件”的完整工作流：左侧导入 Word 或文本，中间校对结构化简历，右侧检查模板字段与格式状态。
@@ -48,8 +73,12 @@
 .
 ├─ backend/                         后端接口、解析器和 Word 生成器
 ├─ frontend/                        React 前端源码
+├─ agents/openai.yaml               Codex 技能展示与调用元数据
+├─ references/resume-schema.md      结构化简历字段说明
+├─ scripts/resume_cli.py            Codex/命令行入口
 ├─ templates/
 │  └─ resume-template-public.docm   匿名公开 Word 模板
+├─ SKILL.md                         Codex 技能定义
 ├─ .gitignore
 ├─ README.md
 └─ requirements.txt

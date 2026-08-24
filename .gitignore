@@ -22,6 +22,11 @@ templates/resume-template.docm
 # 仅保留运行项目；以下研发、测试和过程资料留在本地。
 tests/
 docs/
-scripts/
+scripts/*
+!scripts/resume_cli.py
 .github/
 CONTRIBUTING.md
+
+# Word may leave temporary lock files beside an open document.
+~$*
+**/~$*

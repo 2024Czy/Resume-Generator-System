@@ -1,0 +1,7 @@
+interface:
+  display_name: "Resume Workshop"
+  short_description: "Parse and format Chinese resumes locally"
+  default_prompt: "Use $resume-workshop to parse this resume, help me review uncertain fields, and generate a formatted Word copy."
+
+policy:
+  allow_implicit_invocation: true
