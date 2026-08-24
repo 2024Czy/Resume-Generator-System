@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.py[cod]
+frontend/node_modules/
+frontend/dist/
+.qa/
+.pytest_cache/
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+coverage/
+htmlcov/
+*.log
+
+# 本地原始模板含真实简历资料，不得提交；仓库使用匿名公开模板。
+templates/resume-template.docm
+
+# 仅保留运行项目；以下研发、测试和过程资料留在本地。
+tests/
+docs/
+scripts/
+.github/
+CONTRIBUTING.md
